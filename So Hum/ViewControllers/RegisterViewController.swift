@@ -66,7 +66,7 @@ class RegisterViewController: UIViewController {
                     print("The user has successfully signed up.")
                     
                     //Redirect User to Setup Page
-                    
+                    self.performSegue(withIdentifier: "setupAccountSegue", sender: self)
                 } else {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -75,6 +75,13 @@ class RegisterViewController: UIViewController {
                 }
                 
             })
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "setupAccountSegue" {
+            let vc = segue.destination as! SetupViewController
+            vc.userName = nameField.text
         }
     }
     

@@ -50,7 +50,6 @@
                                         </state>
                                         <connections>
                                             <action selector="onSignUp:" destination="WvJ-f7-C1e" eventType="touchUpInside" id="HP6-sH-ZZZ"/>
-                                            <segue destination="oxF-zo-R3h" kind="show" identifier="setupSegue" id="nhw-j4-3sU"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AjS-Fc-l4E">
@@ -91,7 +90,7 @@
                                     <action selector="switchViews:" destination="WvJ-f7-C1e" eventType="valueChanged" id="E4M-yj-A3P"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6sq-GX-xfA">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6sq-GX-xfA">
                                 <rect key="frame" x="16" y="327" width="343" height="320"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qyE-dc-ON4">
@@ -162,6 +161,7 @@
                         <outlet property="passwordField" destination="uvg-Mz-pL2" id="cvb-l3-aCT"/>
                         <outlet property="signUpContainer" destination="GBi-ZA-3EQ" id="TSj-kG-9ZS"/>
                         <outlet property="viewSwitcher" destination="Yzh-HB-2VL" id="FY8-Nb-T6d"/>
+                        <segue destination="oxF-zo-R3h" kind="show" identifier="setupAccountSegue" id="0aG-K9-tjy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EY6-GU-Xno" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -177,14 +177,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qBe-XA-xfq">
-                                <rect key="frame" x="76" y="115" width="220" height="220"/>
+                                <rect key="frame" x="77.5" y="115" width="220" height="220"/>
+                                <color key="backgroundColor" red="0.23921568627450979" green="0.35686274509803922" blue="0.69498697916666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="2w1-tl-G4z"/>
                                     <constraint firstAttribute="height" constant="220" id="Fce-z1-wHC"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload a Profile Picture" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STA-yi-OVO">
-                                <rect key="frame" x="86" y="83" width="202.5" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Profile Picture" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STA-yi-OVO">
+                                <rect key="frame" x="100" y="83" width="175" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -201,29 +202,62 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Swami!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAw-Gz-jbo">
+                                <rect key="frame" x="16" y="36" width="343" height="35"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="29"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_icon" translatesAutoresizingMaskIntoConstraints="NO" id="9Bu-vn-ZA8">
+                                <rect key="frame" x="176" y="324" width="22" height="22"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="F8v-Vf-iq7"/>
+                                    <constraint firstAttribute="width" constant="22" id="wIG-5d-eEF"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5mR-Qd-8MY" appends="YES" id="94X-ex-1rG"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.23921568627450979" green="0.35686274509803922" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="STA-yi-OVO" firstAttribute="top" secondItem="5pJ-EK-K4x" secondAttribute="top" constant="63" id="6B5-PQ-cQQ"/>
                             <constraint firstItem="2vc-xV-MhW" firstAttribute="top" secondItem="VPJ-Sn-wbh" secondAttribute="bottom" constant="5" id="Dap-8Q-THy"/>
                             <constraint firstItem="VPJ-Sn-wbh" firstAttribute="centerX" secondItem="7Xs-mg-zne" secondAttribute="centerX" id="R0m-b4-g1P"/>
-                            <constraint firstItem="qBe-XA-xfq" firstAttribute="leading" secondItem="STA-yi-OVO" secondAttribute="leading" constant="-10" id="WTb-YT-o2l"/>
+                            <constraint firstItem="5pJ-EK-K4x" firstAttribute="trailing" secondItem="yAw-Gz-jbo" secondAttribute="trailing" constant="16" id="Rhi-Vv-5dO"/>
+                            <constraint firstItem="yAw-Gz-jbo" firstAttribute="top" secondItem="5pJ-EK-K4x" secondAttribute="top" constant="16" id="TVO-cs-rEG"/>
+                            <constraint firstItem="9Bu-vn-ZA8" firstAttribute="centerX" secondItem="7Xs-mg-zne" secondAttribute="centerX" id="Ufs-eG-1jC"/>
+                            <constraint firstItem="9Bu-vn-ZA8" firstAttribute="bottom" secondItem="qBe-XA-xfq" secondAttribute="bottom" constant="11" id="ds1-TA-U9E"/>
                             <constraint firstItem="5pJ-EK-K4x" firstAttribute="trailing" secondItem="2vc-xV-MhW" secondAttribute="trailing" constant="77" id="gmE-iP-Qz9"/>
+                            <constraint firstItem="yAw-Gz-jbo" firstAttribute="leading" secondItem="5pJ-EK-K4x" secondAttribute="leading" constant="16" id="h1E-6d-nLk"/>
                             <constraint firstItem="qBe-XA-xfq" firstAttribute="top" secondItem="STA-yi-OVO" secondAttribute="bottom" constant="8" id="hN3-le-7hb"/>
                             <constraint firstItem="VPJ-Sn-wbh" firstAttribute="top" secondItem="qBe-XA-xfq" secondAttribute="bottom" constant="64" id="k9K-Pv-axl"/>
                             <constraint firstItem="STA-yi-OVO" firstAttribute="centerX" secondItem="7Xs-mg-zne" secondAttribute="centerX" id="ngy-kf-v9y"/>
+                            <constraint firstItem="qBe-XA-xfq" firstAttribute="centerX" secondItem="7Xs-mg-zne" secondAttribute="centerX" id="wuI-0M-hi3"/>
                             <constraint firstItem="2vc-xV-MhW" firstAttribute="leading" secondItem="5pJ-EK-K4x" secondAttribute="leading" constant="77" id="zLI-uo-Wio"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5pJ-EK-K4x"/>
                     </view>
                     <connections>
+                        <outlet property="addPhotoIconImageView" destination="9Bu-vn-ZA8" id="9tH-fK-65e"/>
                         <outlet property="groupTextField" destination="2vc-xV-MhW" id="B8U-ie-L76"/>
                         <outlet property="profilePictureImageView" destination="qBe-XA-xfq" id="fgp-R0-y0s"/>
+                        <outlet property="welcomeLabel" destination="yAw-Gz-jbo" id="Zh2-20-fra"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9RM-yu-BUU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5mR-Qd-8MY">
+                    <connections>
+                        <action selector="onAddProfilePhoto:" destination="oxF-zo-R3h" id="6xL-Bb-cVz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="704.79999999999995" y="447.52623688155927"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add_icon" width="50" height="50"/>
+    </resources>
 </document>
